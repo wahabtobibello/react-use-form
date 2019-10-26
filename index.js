@@ -51,6 +51,12 @@ export const useForm = ({
       [name]: normalizeFn ? normalizeFn(value) : value,
     }));
   };
+
+  const reset = () => {
+    setValues(initialValues);
+    setErrors({});
+    setSubmitting(false);
+  };
   const bind = {
     input: (name) => {
       if (!(name in values)) {
@@ -84,5 +90,6 @@ export const useForm = ({
     submitting,
     handleChange,
     handleSubmit,
+    reset
   };
 };
